@@ -1,22 +1,36 @@
-name: Build & Deploy (Hostinger - SFTP)
-on: { workflow_dispatch: {} }
+name: Build & Deploy (Hostinger - FTP)
+
+on:
+  push:
+    branches: [ "main" ]
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: 'npm' }
-      - run: |
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install & Build
+        run: |
           npm ci
           npm run build
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
+          protocol: ftps
+          server: ${{ secrets.FTP_HOST }}        # 147.93.14.207
+          username: ${{ secrets.FTP_USERNAME }}  # u243345696.digitalmarketprojeto.shop
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}      # 22
-          local_path: 'dist/*'
-          remote_path: ${{ secrets.FTP_DIR }}
-          sftp_only: true
+          port: ${{ secrets.FTP_PORT }}          # 21
+          local-dir: dist/
+          server-dir: ${{ secrets.FTP_DIR }}     # public_html/
+          dangerous-clean-slate: false
