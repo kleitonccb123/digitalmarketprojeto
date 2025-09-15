@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Digital Market Design System - Modern & Sophisticated
+Paleta: Orange #ff6b00, Black #0F0F0F, Navy #0D2A4A, Blue #2B9BF4, White #FAFAFA
+Estilo moderno e sofisticado, mantendo a identidade visual mas com tons mais refinados.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Digital Market Modern Sophisticated Colors */
+    --dm-orange: 25 100% 50%;      /* #ff6b00 - Orange refinado */
+    --dm-black: 0 0% 6%;           /* #0F0F0F - Preto mais suave */
+    --dm-navy: 213 70% 18%;        /* #0D2A4A - Navy mais moderno */
+    --dm-blue: 207 90% 55%;        /* #2B9BF4 - Azul sofisticado */
+    --dm-white: 0 0% 98%;          /* #FAFAFA - Branco quente */
+    
+    /* Semantic Design Tokens - Performance Focus */
+    --background: var(--dm-black);
+    --foreground: var(--dm-white);
+    --card: var(--dm-navy);
+    --card-foreground: var(--dm-white);
+    --popover: var(--dm-navy);
+    --popover-foreground: var(--dm-white);
+    --primary: var(--dm-orange);
+    --primary-foreground: var(--dm-black);
+    --secondary: var(--dm-navy);
+    --secondary-foreground: var(--dm-white);
+    --muted: var(--dm-navy);
+    --muted-foreground: var(--dm-white);
+    --accent: var(--dm-orange);
+    --accent-foreground: var(--dm-black);
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: var(--dm-white);
+    --border: hsl(var(--dm-white) / 0.1);
+    --input: var(--dm-navy);
+    --ring: var(--dm-orange);
+    
+  /* Modern Sophisticated Gradients */
+  --gradient-primary: linear-gradient(135deg, hsl(var(--dm-navy)), hsl(var(--dm-black)));
+  --gradient-accent: linear-gradient(135deg, hsl(var(--dm-orange) / 0.18), hsl(var(--dm-orange) / 0.08));
+  --gradient-hero: linear-gradient(135deg, hsl(var(--dm-black)), hsl(var(--dm-navy)), hsl(var(--dm-blue) / 0.15));
+  --gradient-glow: radial-gradient(circle at center, hsl(var(--dm-blue) / 0.12), transparent);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  --gradient-glass-border: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  
+  /* Modern Sophisticated Shadows */
+  --shadow-soft: 0 4px 24px hsl(var(--dm-black) / 0.28);
+  --shadow-premium: 0 12px 48px hsl(var(--dm-black) / 0.4);
+  --shadow-glow: 0 0 32px hsl(var(--dm-orange) / 0.25);
+  --shadow-blue-glow: 0 0 20px hsl(var(--dm-blue) / 0.3);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.37);
+  --shadow-glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  /* Performance Animation Variables */
+  --transition-premium: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-glass: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+  }
+  
+  /* Typography Classes */
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-space-grotesk {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Modern Glassmorphism Card Styles */
+  .card-premium {
+    @apply relative bg-white/[0.08] backdrop-blur-xl rounded-3xl border border-white/20 transition-[var(--transition-glass)] hover:bg-white/[0.12] hover:border-white/30;
+    box-shadow: var(--shadow-glass), var(--shadow-glass-inset);
+    background-image: var(--gradient-glass);
+  }
+  
+  .card-accent {
+    @apply relative rounded-3xl backdrop-blur-xl transition-[var(--transition-glass)] border;
+    background: linear-gradient(135deg, hsl(var(--dm-orange) / 0.15), hsl(var(--dm-blue) / 0.08));
+    border-color: hsl(var(--dm-orange) / 0.3);
+    box-shadow: var(--shadow-glass), 0 0 20px hsl(var(--dm-orange) / 0.15);
+  }
+  
+  .card-accent:hover {
+    background: linear-gradient(135deg, hsl(var(--dm-orange) / 0.2), hsl(var(--dm-blue) / 0.12));
+  }
+  
+  /* Enhanced Glassmorphism Cards */
+  .card-glass {
+    @apply relative bg-white/[0.06] backdrop-blur-2xl rounded-3xl border transition-[var(--transition-glass)];
+    border-image: var(--gradient-glass-border) 1;
+    box-shadow: var(--shadow-glass), var(--shadow-glass-inset);
+    background-image: var(--gradient-glass);
+  }
+  
+  .card-glass::before {
+    content: '';
+    @apply absolute inset-0 rounded-3xl opacity-60;
+    background: var(--gradient-glass-border);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    padding: 1px;
+  }
+  
+  /* Enhanced Navigation with Glassmorphism */
+  .slide-nav {
+    @apply fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white/[0.08] backdrop-blur-2xl rounded-full px-6 py-3 border border-white/20 z-50 transition-[var(--transition-glass)] hover:bg-white/[0.12];
+    box-shadow: var(--shadow-glass), var(--shadow-glass-inset);
+    background-image: var(--gradient-glass);
+  }
+  
+  /* Performance Buttons - Pill Shape */
+  .btn-primary {
+    @apply bg-dm-orange text-dm-black px-8 py-4 rounded-2xl font-semibold shadow-[var(--shadow-glow)] transition-[var(--transition-premium)] hover:bg-dm-orange/90 hover:scale-[1.02] font-poppins;
+  }
+  
+  .btn-secondary {
+    @apply bg-dm-navy border border-white/20 text-dm-white px-8 py-4 rounded-2xl font-semibold transition-[var(--transition-premium)] hover:bg-dm-navy/80 hover:scale-[1.02] font-poppins;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-dm-blue to-dm-blue/90 text-dm-white px-8 py-4 rounded-2xl font-semibold shadow-[var(--shadow-blue-glow)] transition-[var(--transition-premium)] hover:scale-[1.02] font-poppins;
+  }
+  
+  /* Performance Typography Styles - Mobile First */
+  .heading-xl {
+    @apply font-poppins text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-dm-white leading-tight;
+  }
+  
+  .heading-lg {
+    @apply font-poppins text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-dm-white leading-tight;
+  }
+  
+  .heading-md {
+    @apply font-poppins text-xl sm:text-2xl lg:text-3xl font-semibold text-dm-white leading-tight;
+  }
+  
+  .text-body {
+    @apply font-inter text-sm sm:text-base lg:text-lg text-dm-white/80 leading-relaxed;
+  }
+  
+  .text-accent {
+    @apply text-dm-orange font-semibold;
+  }
+  
+  .text-highlight {
+    @apply text-dm-blue font-medium;
+  }
+  
+  /* Mobile Utility Classes */
+  .mobile-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+  
+  .mobile-text {
+    @apply text-xs sm:text-sm lg:text-base;
+  }
+  
+  .mobile-heading {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+  
+  /* Glass Shimmer Effect */
+  .glass-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: glass-shimmer 2s infinite;
+  }
+  
+  /* Enhanced Glassmorphism Utilities */
+  .glass-ultra {
+    @apply bg-white/[0.04] backdrop-blur-3xl border border-white/10;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-button {
+    @apply relative overflow-hidden bg-white/[0.08] backdrop-blur-xl border border-white/20 transition-[var(--transition-glass)] hover:bg-white/[0.15] hover:border-white/30;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+}
