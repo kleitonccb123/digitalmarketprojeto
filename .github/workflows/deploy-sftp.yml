@@ -2,26 +2,21 @@ name: Build & Deploy (Hostinger - SFTP)
 
 on:
   push:
-    branches: [ "main" ]   # deploy automático a cada push
+    branches: [ "main" ]
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-
       - name: Install & Build
         run: |
           npm ci
           npm run build
-
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
