@@ -29,10 +29,11 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
+          protocol: ftps
+          server: ${{ secrets.FTP_HOST }}        # 147.93.14.207
+          username: ${{ secrets.FTP_USERNAME }}  # u243345696.digitalmarketprojeto.shop
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
+          port: ${{ secrets.FTP_PORT }}          # 21
           local-dir: dist/
-          server-dir: ${{ secrets.FTP_DIR }}
+          server-dir: ${{ secrets.FTP_DIR }}     # public_html/
           dangerous-clean-slate: false
